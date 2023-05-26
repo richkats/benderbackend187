@@ -1,0 +1,6 @@
+Flask
+Werkzeug
+geopy
+peewee
+requests
+Faker
