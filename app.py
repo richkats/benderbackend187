@@ -79,6 +79,11 @@ def like_report():
     return jsonify(crud.like_report(request.get_json()['report_id']))
 
 
+@app.post('/dislike_report/')
+def dislike_report():
+    return jsonify(crud.dislike_report(request.get_json()['report_id']))
+
+
 @app.route("/images/<path:filename>", methods=["GET"])
 def get_image(filename):
     # безопасно соединяем базовый каталог и имя файла

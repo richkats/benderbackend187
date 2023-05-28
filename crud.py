@@ -94,5 +94,15 @@ def delete_report(report_id):
 
 def like_report(report_id):
     report = get_report(report_id)
+    print(report_id)
     q = models.Report.update({models.Report.likes: report['likes'] + 1}).where(models.Report.id == report_id)
-    return q.execute()
+    q.execute()
+    return {"likes": report['likes'] + 1}
+
+
+def dislike_report(report_id):
+    report = get_report(report_id)
+    print(report_id)
+    q = models.Report.update({models.Report.likes: report['likes'] - 1}).where(models.Report.id == report_id)
+    q.execute()
+    return {"likes": report['likes'] - 1}
